@@ -1,26 +1,31 @@
 import {auth} from "../config/firebase"
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth"
-import {getFirestore, doc, getDoc} from "firebase/firestore"
 import { useState } from "react"
 
 export const Auth = ()=>{
     const [user, setUser] = useState("")
     const [password, setPassword] = useState("")
+    const [error, setError] = useState("")
+    const [status, setStatus] = useState("")
 
     async function logIn(user,password){
         const email = `${user}@myapp.local` 
+        setError("")
+        setStatus("")
 
         try{
             const userCred = await signInWithEmailAndPassword(auth, email, password)
             console.log("Logged in as:", userCred.user.uid)
+            setStatus("Login Successful")
+
+            {status && <p style={{ color:"green" }}>{status}</p>}
         }catch (err){
-            if (err.code === "auth/invalid-email"){
-                console.error("❌ User does not exist")
-            }
-            else if (err.code === "auth/invalid-credential") {
-                console.error("❌ Wrong password for that user")
-            } else {
-                console.error("Other error:", err.message)
+            console.error(err)
+
+            if (err.code === "auth/invalid-email" || err.code==="auth/invalid-credential"){
+                setError("Invalid Email or Password, Please check and try again")
+            }else {
+                setError("Other error")
             }
         } 
     }   
@@ -30,7 +35,12 @@ export const Auth = ()=>{
             <input placeholder="Username..." onChange={(e)=>setUser(e.target.value)} />
             <input placeholder="Password..." onChange={(e)=>setPassword(e.target.value)}/>
             <button onClick={() => logIn(user, password)}>Log in</button>
+            {error && <p style={{ color: "red" }}>{error}</p>}
+            {status && <p style={{ color: "green"}}>{status}</p>}
         </div>
     )    
 }
 
+//Usernames & Passwords
+//team0 => ubstairs
+//admin => neverpineapple
