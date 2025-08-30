@@ -34,18 +34,39 @@ body{
 .passContainer{
     display: flex;
     width: 100%;
-    align-items: stretch;
+    justify-content: center;
+    align-items: center;
+    max-width: 200px;
+    padding: 5px;
+    border: 3px solid #164464;
+    border-radius: 8px;
     gap: 5px;
+    background-color: white;
 }
 .password{
     flex: 9.5;
+    border: 0px;
+    background-color: white;
 }
 .showPassBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
     flex: 0.5;
+    width: 28px;
+    height: 28px;
     padding: 0;
-    background-color: #f2eddc;
-    font-size: 20px;
-    border: 0;
+}
+.showPassBtn img,
+.showPassBtn svg {
+    width: 22px;
+    height: 22px;
+    display: block;
+    object-fit: contain;
+    pointer-events: none; /* Prevent accidentally focusing image */
 }
 .textContainer{
     display: flex;
@@ -56,16 +77,11 @@ body{
 }
 .username{
     padding: 5px;
-    max-width: 190px;
+    width: 100%;
+    max-width: 200px;
     border-radius: 8px;
-    border: 2px solid #164464;
+    border: 3px solid #164464;
 }
-.password{
-    padding: 5px;
-    border-radius: 8px;
-    border: 2px solid #164464;
-}
-
 .logInBtn{
     background-color: #164464;
     color: #f2eddc;
@@ -157,7 +173,9 @@ body{
   height: 100%;
   z-index: -2; 
 }
-
+input:focus{
+  outline: none;
+}
 
 
 

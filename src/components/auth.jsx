@@ -58,7 +58,12 @@ export const Auth = ()=>{
             <input className="username boxElement" placeholder="Username..." onChange={(e)=>setUser(e.target.value)} />
             <div className="passContainer">
                 <input className="password  boxElement" placeholder="Password..." type={showPass?"text":"password"} onChange={(e)=>setPassword(e.target.value)}/>
-                <button className="showPassBtn  boxElement" onClick={() => setShowPass(!showPass)}>{showPass? "🔒":"🔓"}</button>
+                <button className="showPassBtn  boxElement" onClick={() => setShowPass(!showPass)}>
+                    <img 
+                        src={showPass? "/eye-slash-svgrepo-com.svg":"/eye-svgrepo-com.svg"} 
+                        alt={showPass? "Hide Password":"Show Password"} 
+                    />
+                </button>
             </div>
             <button className="logInBtn boxElement" onClick={() => logIn(user, password)}>Log in</button>
             {error && <p className="errorMsg" style={{ color: "red", fontSize:"10px", margin:"0px" }}>{error}</p>}
