@@ -13,12 +13,12 @@ export const Auth = ()=>{
     const navigate = useNavigate()
 
     async function logIn(user,password){
-        const email = `${user}@myapp.local` 
+        const email = `${user}@myapp.local`
+        
         setError("")
 
         try{
             const userCred = await signInWithEmailAndPassword(auth, email, password)
-            console.log("Logged in as:", auth?.currentUser?.email)
 
             if(user==="admin"){
                 navigate("/admin")
@@ -67,5 +67,14 @@ export const Auth = ()=>{
 }
 
 //Usernames & Passwords
-//team0 => ubstairs
 //admin => neverpineapple
+//team0 => ubstairs
+//team1 => notapasswordbro
+//team2 => shrekislove123
+//team3 => SendTherapist
+//team4 => toiletpaperCEO
+//team5 => PLACEMENTS!!
+//team6 => do-u-no-da-wae
+//team7 => wherepayment
+//team8 => RIPinternals
+//team9 => whereinternship
