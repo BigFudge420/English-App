@@ -29,9 +29,9 @@ export const Auth = ()=>{
             console.error(err)
 
             if (err.code === "auth/invalid-email" || err.code==="auth/invalid-credential"){
-                setError("Invalid Email or Password, Please check and try again")
+                setError("Invalid Username or Password, Please check and try again")
             }else {
-                setError("Other error")
+                setError("Please enter both the Username and Password")
             }
         } 
     }   
@@ -61,7 +61,7 @@ export const Auth = ()=>{
                 <button className="showPassBtn  boxElement" onClick={() => setShowPass(!showPass)}>{showPass? "🔒":"🔓"}</button>
             </div>
             <button className="logInBtn boxElement" onClick={() => logIn(user, password)}>Log in</button>
-            {error && <p className="errorMsg" style={{ color: "red" }}>{error}</p>}
+            {error && <p className="errorMsg" style={{ color: "red", fontSize:"10px", margin:"0px" }}>{error}</p>}
         </div>
     )    
 }
