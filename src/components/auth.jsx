@@ -8,6 +8,7 @@ export const Auth = ()=>{
     const [user, setUser] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
+    const [showPass, setShowPass] = useState(false)
     const navigate = useNavigate()
 
     async function logIn(user,password){
@@ -17,10 +18,8 @@ export const Auth = ()=>{
         try{
             const userCred = await signInWithEmailAndPassword(auth, email, password)
             console.log("Logged in as:", auth?.currentUser?.email)
-            
-            navigate("/home")
 
-            {status && <p style={{ color:"green" }}>{status}</p>}
+            navigate("/home")
         }catch (err){
             console.error(err)
 
@@ -35,7 +34,8 @@ export const Auth = ()=>{
     return(
         <div>
             <input placeholder="Username..." onChange={(e)=>setUser(e.target.value)} />
-            <input placeholder="Password..." type="password" onChange={(e)=>setPassword(e.target.value)}/>
+            <input placeholder="Password..." type={showPass?"text":"password"} onChange={(e)=>setPassword(e.target.value)}/>
+            <button onClick={() => setShowPass(!showPass)}>{showPass? "🙈 Hide":"👁 Show"}</button>
             <button onClick={() => logIn(user, password)}>Log in</button>
             {error && <p style={{ color: "red" }}>{error}</p>}
         </div>
