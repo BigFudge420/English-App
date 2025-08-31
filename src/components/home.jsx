@@ -1,4 +1,5 @@
 import { auth } from "../config/firebase"
+import { useState } from "react"
 
 export const Home = () => {
     let user = auth?.currentUser?.email
@@ -8,9 +9,9 @@ export const Home = () => {
     
     return (
         <div>
-            <h1>Welcome Home, pookie!</h1>
-            <p>You are now logged in, bend over slut</p>
-            <p>You are Team {num}</p>
+            <h1>Welcome Home!</h1>
+            <p>Your are team {num}</p>
+            <p>Logged in as user</p>
         </div>
     )
 }

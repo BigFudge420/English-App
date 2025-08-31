@@ -66,7 +66,7 @@ body{
     height: 22px;
     display: block;
     object-fit: contain;
-    pointer-events: none; /* Prevent accidentally focusing image */
+    pointer-events: none;
 }
 .textContainer{
     display: flex;
@@ -146,7 +146,7 @@ body{
   height: 0;
   border-left: 80px solid transparent;   
   border-right: 80px solid transparent;  
-  border-bottom: 160px solid #164464; /* border color */
+  border-bottom: 160px solid #164464; 
   position: absolute;   
   top: 49%;
   left: 4.5%;
