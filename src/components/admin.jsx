@@ -1,8 +1,8 @@
 export const Admin = () => {
     return (
         <div>
-            <h1>Welcome Home, master...</h1>
-            <p>Shall I bend over now?</p>
+            <h1>Welcome Home</h1>
+            <p>You are logged in as admin</p>
         </div>
     )
 }
